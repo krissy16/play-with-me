@@ -1,0 +1,22 @@
+.add-post-form{
+    width: 80%;
+    margin: auto;
+}
+.form-title, .form-content{
+    margin: auto;
+    width: 80%;
+    display: block;
+    position: relative;
+    margin: 15px 5px;
+    padding: 10px 20px;
+}
+#title, #content{
+    position: absolute;
+    right: 20px;
+    width: 70%;
+}
+.submit{
+    display: block;
+    margin: 30px auto;
+    width: 150px;
+}

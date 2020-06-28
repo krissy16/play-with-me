@@ -1,0 +1,19 @@
+header{
+    position: relative;
+    width: 100vw;
+    margin: 0;
+    background-color:#e7d6f5;
+    padding: 15px 0;
+    display: flex;
+    justify-content: flex-end;
+}
+header *{
+    margin-right: 30px;
+}
+.logo{
+    margin-right: auto;
+    margin-left: 30px;
+}
+.logo-img{
+    height: 30px;
+}

@@ -1,0 +1,20 @@
+.container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: gray;
+    text-align: center;
+}
+.landing-logo{
+    position: fixed;
+    top: 10px;
+    left: 20px;
+}
+.landing-info{
+    position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	height: fit-content;
+	margin: auto;
+}

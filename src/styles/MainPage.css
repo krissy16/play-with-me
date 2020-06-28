@@ -1,0 +1,16 @@
+.results{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    list-style: none;
+}
+.result{
+    background-color: aliceblue;
+    margin: 15px auto;
+    padding: 10px;
+}
+.result > p{
+    text-align: left;
+}
+
