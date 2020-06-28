@@ -6,7 +6,8 @@
     list-style: none;
 }
 .result{
-    background-color: aliceblue;
+    background-color: white;
+    border: 1px solid #ceacec;
     margin: 15px auto;
     padding: 10px;
 }

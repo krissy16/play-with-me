@@ -5,7 +5,7 @@ import '../styles/LandingPage.css'
 function LandingPage(){
     return(
         <div className="container">
-            <Link className="landing-logo" to="/"><div >Logo</div></Link>
+            <img className="landing-logo" src="/logo.png" alt="logo"/>
             <div className="landing-info">
                 <h1>Find Your New Playmate!</h1>
                 <p>Play With Me is an app thats helps you find playdates for your children. To get started simply browse current playdate events or create your own!</p>

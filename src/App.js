@@ -15,6 +15,12 @@ class App extends React.Component {
         title: 'test',
         content: 'sample test',
         comments: []
+      },
+      {
+        id: 1,
+        title: 'Second test Post',
+        content: 'test',
+        comments: ['this is a comment']
       }
     ]
   }

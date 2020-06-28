@@ -1,7 +1,6 @@
 import React from 'react'
 import PostContext from '../PostContext'
 import Header from './Header'
-//import Comment from './Comment'
 import '../styles/DetailsPage.css'
 
 class DetailsPage extends React.Component{
@@ -34,7 +33,7 @@ class DetailsPage extends React.Component{
         return(
             <>
                 <Header />
-                <div className="result-detail">
+                <div className="result detail">
                     <h2>{post.title}</h2>
                     <p>{post.content}</p>
                 </div>

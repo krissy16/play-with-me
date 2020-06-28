@@ -2,10 +2,11 @@ header{
     position: relative;
     width: 100vw;
     margin: 0;
-    background-color:#e7d6f5;
+    background-color:#ceacec;
     padding: 15px 0;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
 }
 header *{
     margin-right: 30px;
