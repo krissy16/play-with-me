@@ -1,4 +1,5 @@
 import React from 'react'
+import config from '../config';
 import Header from './Header'
 import PostContext from '../PostContext'
 import '../styles/NewPostPage.css'
@@ -9,14 +10,32 @@ class NewPostPage extends React.Component{
         e.preventDefault();
         const { title, content } = e.target;
         const post = {
-            id: this.context.posts.length,
-            title: title.value,
-            content: content.value,
-            comments: []
+            post_name: title.value,
+            post_content: content.value
         }
-        this.context.addPost(post)
-        this.props.history.push('/results')
+        fetch(`${config.API_ENDPOINT}/posts`, {
+            method: 'POST',
+            body: JSON.stringify(post),
+            headers: {
+              'content-type': 'application/json',
+              'Authorization': `Bearer ${config.API_KEY}`
+            }
+          })
+            .then(res => {
+              if (!res.ok) {
+                return res.json().then(error => Promise.reject(error))
+              }
+              return res.json()
+            })
+            .then(post => {
+                this.context.addPost(post)
+                this.props.history.push('/results')
+            })
+            .catch(error => {
+              console.error(error)
+            })
     }
+
     render(){
         return(
             <>

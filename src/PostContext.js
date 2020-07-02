@@ -2,8 +2,7 @@ import React from 'react'
 
 const PostContext = React.createContext({
     posts: [],
-    addPost: () => {},
-    addComment: () => {}
+    addPost: () => {}
 })
 
 export default PostContext;

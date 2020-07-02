@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom'
+import config from './config';
 import PostContext from './PostContext'
 import LandingPage from './components/LandingPage'
 import MainPage from './components/MainPage'
@@ -9,20 +10,7 @@ import NotFoundPage from './components/NotFoundPage'
 
 class App extends React.Component {
   state={
-    posts: [
-      {
-        id: 0,
-        title: 'test',
-        content: 'sample test',
-        comments: []
-      },
-      {
-        id: 1,
-        title: 'Second test Post',
-        content: 'test',
-        comments: ['this is a comment']
-      }
-    ]
+    posts: []
   }
   setPosts = posts => {
     this.setState({
@@ -36,22 +24,29 @@ class App extends React.Component {
     })
   }
 
-  addComment = (comment, postId) => {
-    let updatedPost = this.state.posts.find( post => post.id === postId).comments.push(comment)
-    this.setState({
-      posts: this.state.posts.map(post =>
-        (post.id !== updatedPost.id) ? post : updatedPost
-      )
-    })
-  }
   componentDidMount(){
-    //api call will go here
+    fetch(`${config.API_ENDPOINT}/posts`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': `Bearer ${config.API_KEY}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) {
+          return res.json().then(error => Promise.reject(error))
+        }
+        return res.json()
+      })
+      .then(this.setPosts)
+      .catch(error => {
+        console.error(error)
+      })
   }
   render(){
     const contextValue={
       posts: this.state.posts,
-      addPost: this.addPost,
-      addComment: this.addComment
+      addPost: this.addPost
     }
     return (
       <main className='App'>
