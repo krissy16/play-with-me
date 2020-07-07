@@ -1,7 +1,8 @@
 .container{
     width: 100vw;
     min-height: 100vh;
-    background-color: #ceacec;
+    background: rgb(132,171,249);
+    background: linear-gradient(45deg, rgba(132,171,249,1) 0%, rgba(206,172,236,1) 50%, rgba(240,108,208,1) 100%);
     text-align: center;
 }
 .landing-logo{

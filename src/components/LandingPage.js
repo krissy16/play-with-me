@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import AnimatedBackground from './AnimatedBackground'
 import '../styles/LandingPage.css'
 
 function LandingPage(){
     return(
         <div className="container">
+            <AnimatedBackground />
             <img className="landing-logo" src="/logo.png" alt="logo"/>
             <div className="landing-info">
                 <h1>Find Your New Playmate!</h1>
