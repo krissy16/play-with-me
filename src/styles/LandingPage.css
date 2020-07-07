@@ -2,14 +2,23 @@
     width: 100vw;
     min-height: 100vh;
     background: rgb(132,171,249);
-    background: linear-gradient(45deg, rgba(132,171,249,1) 0%, rgba(206,172,236,1) 50%, rgba(240,108,208,1) 100%);
     text-align: center;
 }
-.landing-logo{
+.logo-container{
     position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 10px;
     left: 20px;
+}
+.landing-logo{
     height: 30px;
+}
+.logo-text{
+    margin-left: 10px;
+    font-family: 'Lora', serif;
+    font-weight: bold;
 }
 .landing-info{
     position: absolute;
@@ -18,5 +27,29 @@
 	left: 0;
 	right: 0;
   	height: fit-content;
-	margin: auto;
+    margin: auto 5%;
+    z-index: 10;
+}
+/* background: linear-gradient(45deg, rgba(132,171,249,1) 0%, rgba(206,172,236,1) 50%, rgba(240,108,208,1) 100%);*/
+.myButton {
+    box-shadow:inset 0px 1px 0px 0px #e184f3;
+    background: linear-gradient(45deg, #ceacec 0%, #b682e3 100%);
+	border-radius:6px;
+	border:1px solid #b682e3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9b14b3;
+}
+.myButton:hover {
+    background:  #b682e3;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
