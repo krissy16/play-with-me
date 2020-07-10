@@ -1,8 +1,9 @@
 .container{
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     background: rgb(132,171,249);
     text-align: center;
+    overflow: hidden;
 }
 .logo-container{
     position: fixed;
@@ -30,7 +31,6 @@
     margin: auto 5%;
     z-index: 10;
 }
-/* background: linear-gradient(45deg, rgba(132,171,249,1) 0%, rgba(206,172,236,1) 50%, rgba(240,108,208,1) 100%);*/
 .myButton {
     box-shadow:inset 0px 1px 0px 0px #e184f3;
     background: linear-gradient(45deg, #ceacec 0%, #b682e3 100%);

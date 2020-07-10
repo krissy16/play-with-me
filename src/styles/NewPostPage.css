@@ -1,10 +1,18 @@
+.create-post-title{
+    font-size: 1.5em;
+    text-align: center;
+}
 .add-post-form{
-    width: 80%;
+    width: 70%;
     margin: auto;
+    position: relative;
+}
+.add-post-form *{ 
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
 }
 .form-title, .form-content{
     margin: auto;
-    width: 80%;
     display: block;
     position: relative;
     margin: 15px 5px;
@@ -13,10 +21,68 @@
 #title, #content{
     position: absolute;
     right: 20px;
-    width: 70%;
+    width: 80%;
+    outline:none;
+    border: none;
+    border: 1px solid #ceacec;
+    padding: 5px;
+} 
+#content{
+    resize: none;
+    height: 8em;
 }
-.submit{
-    display: block;
-    margin: 30px auto;
-    width: 150px;
+.new-post-buttons{
+    position: absolute;
+    right: 2em;
+    bottom: -10em;
+}
+.submit-post{
+    background-color: #ceacec;
+    border: none;
+    display: inline-block;
+    padding: 5px 15px;
+}
+.submit-post:hover{
+    background-color: #bc8ae9;
+    cursor: pointer;
+}
+.cancel{
+    background-color: white;
+    border: none;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-right: 10px;
+}
+.cancel:hover{
+    background-color: #e2dde6;
+    cursor: pointer;
+}
+@media screen and (max-width: 1000px){
+    .add-post-form{
+        width: 90%;
+    }
+    #title, #content{
+        width: 70%;
+    }
+}
+@media screen and (max-width: 700px){
+    .add-post-form{
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    #title, #content{
+        position: initial;
+        display: block;
+        margin: 5px auto;
+    }
+    .form-title, .form-content{
+        margin: 0;
+        width: 100%;
+    }
+    .new-post-buttons{
+        position: initial;
+    }
 }

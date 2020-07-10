@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from './Header'
+import '../styles/NotFoundPage.css'
+
 
 function NotFoundPage(){
     return(
-        <p>Sorry! Path not found</p>
+        <>
+            <Header />
+            <p className="not-found">Sorry! Page not found</p>
+        </>
     )
 }
 

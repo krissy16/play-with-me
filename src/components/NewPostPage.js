@@ -35,11 +35,15 @@ class NewPostPage extends React.Component{
               console.error(error)
             })
     }
-
+    handleCancel = e => {
+        e.preventDefault()
+        this.props.history.push('/results')
+    }
     render(){
         return(
             <>
                 <Header />
+                <h1 className="create-post-title">Create a Post</h1>
                 <form className="add-post-form" onSubmit={this.handleSubmit}>
                     <span className="form-title">
                             <label htmlFor="title">Title: </label>
@@ -49,7 +53,10 @@ class NewPostPage extends React.Component{
                         <label htmlFor="content">Description: </label>
                         <textarea id="content" name="content"></textarea>
                     </span>
-                    <button className="submit" type="submit">Submit</button>
+                    <span className="new-post-buttons">
+                        <button className="cancel" type="cancel"  onClick={ e => this.handleCancel(e) }>Cancel</button>
+                        <button className="submit-post" type="submit">Submit</button>
+                    </span>
                 </form>
             </>
         )

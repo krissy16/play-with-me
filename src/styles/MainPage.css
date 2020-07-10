@@ -7,11 +7,17 @@
 }
 .result{
     background-color: white;
-    border: 1px solid #ceacec;
+    border: thick double #ceacec;
+    border-radius: 2px;
     margin: 15px auto;
     padding: 10px;
+}
+.result > a{
+    text-decoration: none;
+}
+.result > a:hover{
+    text-decoration: underline;
 }
 .result > p{
     text-align: left;
 }
-

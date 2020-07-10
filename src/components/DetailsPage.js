@@ -2,6 +2,7 @@ import React from 'react'
 import config from '../config';
 import PostContext from '../PostContext'
 import Header from './Header'
+import NotFoundPage from './NotFoundPage'
 import '../styles/DetailsPage.css'
 
 class DetailsPage extends React.Component{
@@ -50,7 +51,7 @@ class DetailsPage extends React.Component{
             post_id: postId
         };
         this.postComment(comment)
-    }   
+    }  
     postComment(comment){
         fetch(`${config.API_ENDPOINT}/comments`, {
             method: 'POST',
@@ -80,11 +81,13 @@ class DetailsPage extends React.Component{
     }
     static contextType = PostContext;
     static defaultProps = {
-        posts: [],
+        posts: [
+        ],
         comments: []
     };
     render(){
-        const post = this.context.posts.find( post => post.id === parseInt(this.props.match.params.detailsId)) || []
+        const post = this.context.posts.find( post => post.id === parseInt(this.props.match.params.detailsId)) || null
+        if(post === null) return <NotFoundPage />
         const comments = this.state.comments.filter( comment => comment.post_id === post.id) || []
         return(
             <>
@@ -94,14 +97,17 @@ class DetailsPage extends React.Component{
                     <p>{post.post_content}</p>
                 </div>
                 <ul className="comments">
+                  <li className="comments-title">{comments.length} Comments: </li>
                     {comments.map((comment, index) => 
                         <li key={index} className='comment'>{comment.content}</li>)}
-                    {this.state.hideCommentForm ? <p onClick={() => this.toggleForm()}>Add Comment</p> : 
-                        <li className="comment">
-                            <form onSubmit={ e => this.handleSubmit(e, post.id)}>
-                                <label htmlFor="comment">Comment</label>
-                                <textarea id="comment" name="comment" value={this.state.newComment} onChange={this.handleChange}></textarea>
-                                <button type="submit">Submit</button>
+                    {this.state.hideCommentForm ? <p className="addComment" onClick={() => this.toggleForm()}>Add Comment</p> : 
+                        <li className="add comment">
+                            <form className="comment-form" onSubmit={ e => this.handleSubmit(e, post.id)}>
+                                <input type="text" id="comment" name="comment" value={this.state.newComment} onChange={this.handleChange} placeholder="Add Comment" />
+                                <span className="buttons">
+                                  <button className="cancel button" type="cancel"  onClick={() => this.toggleForm()}>Cancel</button>
+                                  <button className="submit-comment button" type="submit">Comment</button>
+                                </span>
                             </form>
                         </li>}
                 </ul>

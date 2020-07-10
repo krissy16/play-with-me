@@ -14,6 +14,51 @@
     padding: 10px;
     width: 80%;
 }
+.comments-title{
+    text-align: left;
+    width: 80%;
+    margin: auto;
+}
+.add{
+    background-color: transparent;
+}
+.comment-form{
+    position: relative;
+}
+.comment-form *{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+}
 #comment{
     width: 100%;
+    background-color: transparent;
+    outline:none;
+    border: none;
+    border-bottom: 1px solid black;
+    padding: 5px;
+}
+.buttons{
+    position: absolute;
+    right: 0;
+    bottom: -2em;
+}
+.button{
+    padding: 3px;
+    display: inline-block;
+    border: none;
+}
+.cancel{
+    background-color: white;
+}
+.cancel:hover{
+    background-color: #e2dde6;
+    cursor: pointer;
+}
+.submit-comment{
+    margin: 0 5px;
+    background-color: #ceacec;
+}
+.submit-comment:hover{
+    background-color: #bc8ae9;
+    cursor: pointer;
 }
