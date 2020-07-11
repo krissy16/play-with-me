@@ -12,6 +12,7 @@ class DetailsPage extends React.Component{
         newComment: ''
     } 
     componentDidMount(){
+      //fetch all comments for the post
         fetch(`${config.API_ENDPOINT}/comments`, {
           method: 'GET',
           headers: {
@@ -35,6 +36,8 @@ class DetailsPage extends React.Component{
           comments
         })
       }
+    
+    //toggle display of add comment button vs add comment form
     toggleForm(){
         const hideCommentForm = !(this.state.hideCommentForm)
         this.setState({
@@ -87,6 +90,7 @@ class DetailsPage extends React.Component{
     };
     render(){
         const post = this.context.posts.find( post => post.id === parseInt(this.props.match.params.detailsId)) || null
+        //if post cannot be found redirect to not found page
         if(post === null) return <NotFoundPage />
         const comments = this.state.comments.filter( comment => comment.post_id === post.id) || []
         return(
