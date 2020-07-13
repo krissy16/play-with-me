@@ -1,66 +1,66 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom'
-import config from './config';
-import PostContext from './PostContext'
-import LandingPage from './components/LandingPage'
-import MainPage from './components/MainPage'
-import DetailsPage from './components/DetailsPage'
-import NewPostPage from './components/NewPostPage'
-import NotFoundPage from './components/NotFoundPage'
+import React from "react";
+import { Route, Switch } from "react-router-dom";
+import config from "./config";
+import PostContext from "./PostContext";
+import LandingPage from "./components/LandingPage";
+import MainPage from "./components/MainPage";
+import DetailsPage from "./components/DetailsPage";
+import NewPostPage from "./components/NewPostPage";
+import NotFoundPage from "./components/NotFoundPage";
 
 class App extends React.Component {
-  state={
-    posts: []
-  }
-  setPosts = posts => {
+  state = {
+    posts: [],
+  };
+  setPosts = (posts) => {
     this.setState({
-      posts
-    })
-  }
+      posts,
+    });
+  };
 
-  addPost = post => {
+  addPost = (post) => {
     this.setState({
-      posts: [ ...this.state.posts, post ],
-    })
-  }
+      posts: [...this.state.posts, post],
+    });
+  };
 
-  componentDidMount(){
+  componentDidMount() {
     fetch(`${config.API_ENDPOINT}/posts`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_KEY}`
-      }
+        "content-type": "application/json",
+        Authorization: `Bearer ${config.API_KEY}`,
+      },
     })
-      .then(res => {
+      .then((res) => {
         if (!res.ok) {
-          return res.json().then(error => Promise.reject(error))
+          return res.json().then((error) => Promise.reject(error));
         }
-        return res.json()
+        return res.json();
       })
       .then(this.setPosts)
-      .catch(error => {
-        console.error(error)
-      })
+      .catch((error) => {
+        console.error(error);
+      });
   }
-  render(){
-    const contextValue={
+  render() {
+    const contextValue = {
       posts: this.state.posts,
-      addPost: this.addPost
-    }
+      addPost: this.addPost,
+    };
     return (
-      <main className='App'>
+      <main className="App">
         <PostContext.Provider value={contextValue}>
           <Switch>
-            <Route exact path='/' component={LandingPage}/>
-            <Route path='/results' component={MainPage}/>
-            <Route path='/details/:detailsId' component={DetailsPage}/>
-            <Route path='/make-post' component={NewPostPage}/>
+            <Route exact path="/" component={LandingPage} />{" "}
+            <Route path="/results" component={MainPage} />
+            <Route path="/details/:detailsId" component={DetailsPage} />
+            <Route path="/make-post" component={NewPostPage} />
             <Route component={NotFoundPage} />
           </Switch>
         </PostContext.Provider>
       </main>
-    )
+    );
   }
 }
 

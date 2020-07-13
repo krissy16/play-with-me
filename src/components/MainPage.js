@@ -1,8 +1,8 @@
-import React from 'react'
-import PostContext from '../PostContext'
-import Header from './Header'
-import Result from './Result'
-import '../styles/MainPage.css'
+import React from 'react';
+import PostContext from '../PostContext';
+import Header from './Header';
+import Result from './Result';
+import '../styles/MainPage.css';
 
 class MainPage extends React.Component{
     static contextType = PostContext;

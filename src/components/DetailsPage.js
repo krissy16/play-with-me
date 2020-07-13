@@ -1,16 +1,16 @@
-import React from 'react'
+import React from 'react';
 import config from '../config';
-import PostContext from '../PostContext'
-import Header from './Header'
-import NotFoundPage from './NotFoundPage'
-import '../styles/DetailsPage.css'
+import PostContext from '../PostContext';
+import Header from './Header';
+import NotFoundPage from './NotFoundPage';
+import '../styles/DetailsPage.css';
 
 class DetailsPage extends React.Component{
     state = {
         hideCommentForm: true,
         comments: [],
         newComment: ''
-    } 
+    }; 
     componentDidMount(){
       //fetch all comments for the post
         fetch(`${config.API_ENDPOINT}/comments`, {
@@ -22,14 +22,14 @@ class DetailsPage extends React.Component{
         })
           .then(res => {
             if (!res.ok) {
-              return res.json().then(error => Promise.reject(error))
+              return res.json().then(error => Promise.reject(error));
             }
-            return res.json()
+            return res.json();
           })
           .then(this.setComments)
           .catch(error => {
-            console.error(error)
-          })
+            console.error(error);
+          });
       }
       setComments = comments => {
         this.setState({
@@ -39,13 +39,13 @@ class DetailsPage extends React.Component{
     
     //toggle display of add comment button vs add comment form
     toggleForm(){
-        const hideCommentForm = !(this.state.hideCommentForm)
+        const hideCommentForm = !(this.state.hideCommentForm);
         this.setState({
             hideCommentForm
         })
     } 
     handleChange = e => {
-        this.setState({ newComment: e.target.value })
+        this.setState({ newComment: e.target.value });
     }
     handleSubmit = (e, postId) => {
         e.preventDefault();
@@ -53,7 +53,7 @@ class DetailsPage extends React.Component{
             content: e.target.comment.value,
             post_id: postId
         };
-        this.postComment(comment)
+        this.postComment(comment);
     }  
     postComment(comment){
         fetch(`${config.API_ENDPOINT}/comments`, {
@@ -66,20 +66,20 @@ class DetailsPage extends React.Component{
           })
             .then(res => {
               if (!res.ok) {
-                return res.json().then(error => Promise.reject(error))
+                return res.json().then(error => Promise.reject(error));
               }
-              return res.json()
+              return res.json();
             })
             .then( res => {
-                const newComments = [...this.state.comments, res]
+                const newComments = [...this.state.comments, res];
                 this.setState({ 
                     comments: newComments,
                     hideCommentForm: true, 
                     comment: ''
-                })
+                });
             })
             .catch(error => {
-              console.error(error)
+              console.error(error);
             })
     }
     static contextType = PostContext;
@@ -89,10 +89,10 @@ class DetailsPage extends React.Component{
         comments: []
     };
     render(){
-        const post = this.context.posts.find( post => post.id === parseInt(this.props.match.params.detailsId)) || null
+        const post = this.context.posts.find( post => post.id === parseInt(this.props.match.params.detailsId)) || null;
         //if post cannot be found redirect to not found page
-        if(post === null) return <NotFoundPage />
-        const comments = this.state.comments.filter( comment => comment.post_id === post.id) || []
+        if(post === null) return <NotFoundPage />;
+        const comments = this.state.comments.filter( comment => comment.post_id === post.id) || [];
         return(
             <>
                 <Header />

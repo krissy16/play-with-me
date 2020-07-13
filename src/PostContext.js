@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
 const PostContext = React.createContext({
-    posts: [],
-    addPost: () => {}
-})
+  posts: [],
+  addPost: () => {},
+});
 
 export default PostContext;

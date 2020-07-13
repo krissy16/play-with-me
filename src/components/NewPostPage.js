@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 import config from '../config';
-import Header from './Header'
-import PostContext from '../PostContext'
-import '../styles/NewPostPage.css'
+import Header from './Header';
+import PostContext from '../PostContext';
+import '../styles/NewPostPage.css';
 
 class NewPostPage extends React.Component{
     static contextType = PostContext;
@@ -12,7 +12,7 @@ class NewPostPage extends React.Component{
         const post = {
             post_name: title.value,
             post_content: content.value
-        }
+        };
         fetch(`${config.API_ENDPOINT}/posts`, {
             method: 'POST',
             body: JSON.stringify(post),
@@ -23,21 +23,21 @@ class NewPostPage extends React.Component{
           })
             .then(res => {
               if (!res.ok) {
-                return res.json().then(error => Promise.reject(error))
+                return res.json().then(error => Promise.reject(error));
               }
-              return res.json()
+              return res.json();
             })
             .then(post => {
-                this.context.addPost(post)
-                this.props.history.push('/results')
+                this.context.addPost(post);
+                this.props.history.push('/results');
             })
             .catch(error => {
-              console.error(error)
+              console.error(error);
             })
     }
     handleCancel = e => {
-        e.preventDefault()
-        this.props.history.push('/results')
+        e.preventDefault();
+        this.props.history.push('/results');
     }
     render(){
         return(
@@ -64,26 +64,3 @@ class NewPostPage extends React.Component{
 }
 
 export default NewPostPage;
-
-
-
-/*
-posts[
-   {
-        title
-        content
-        comments
-            [
-                {
-                    content
-                    replies
-                        [
-                            'replies'
-                        ]
-                }
-            ]
-    }
-]
-
-
-*/
