@@ -1,0 +1,188 @@
+.background-container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #00b4ff;
+    overflow: hidden;
+}
+.grass{
+    background-color: green;
+    width: 100%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+}
+
+
+.playground{
+    position: absolute;
+    z-index: 5;
+    bottom: 30px;
+}
+.slide{
+    height: 300px;
+    left: 20px;
+}
+.climber{
+    height: 200px;
+    right: 20px;
+}
+
+
+@keyframes animateCloud {
+    0% {
+        margin-left: 2000px;
+    }
+    100% {
+        margin-left: -500px;
+    }
+}
+.cloud {
+	width: 200px; height: 60px;
+    left: -300px;
+	background: #fff;
+	
+	border-radius: 200px;
+	-moz-border-radius: 200px;
+	-webkit-border-radius: 200px;
+	
+    position: relative; 
+    
+	-webkit-transform: scale(0.5);
+	-moz-transform: scale(0.5);
+	transform: scale(0.5);
+}
+
+.cloud:before, .cloud:after {
+	content: '';
+	position: absolute; 
+	background: #fff;
+	width: 100px; height: 80px;
+	position: absolute; top: -25px; left: 10px;
+	
+	border-radius: 100px;
+	-moz-border-radius: 100px;
+	-webkit-border-radius: 100px;
+	
+	-webkit-transform: rotate(30deg);
+	transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+}
+
+.cloud:after {
+	width: 120px; height: 120px;
+	top: -65px; left: auto; right: 15px;
+}
+
+.x1{
+    top: 5%;
+    -webkit-animation: animateCloud 50s linear infinite;
+	-moz-animation: animateCloud 50s linear infinite;
+	animation: animateCloud 50s linear infinite;
+}
+
+.x2{
+    -webkit-animation: animateCloud 50s linear 12s infinite;
+	-moz-animation: animateCloud 50s linear 12s infinite;
+	animation: animateCloud 50s linear 12s infinite;
+}
+.x3{
+     -webkit-animation: animateCloud 50s linear 5s infinite;
+	-moz-animation: animateCloud 50s linear 5s infinite;
+	animation: animateCloud 50s linear 5s infinite;
+}
+.x4{
+    -webkit-animation: animateCloud 50s linear 20s infinite;
+	-moz-animation: animateCloud 50s linear 20s infinite;
+	animation: animateCloud 50s linear 20s infinite;
+}
+
+.x5{
+    top: -30%;
+    -webkit-animation: animateCloud 50s linear -27s infinite;
+	-moz-animation: animateCloud 50s linear -27s infinite;
+	animation: animateCloud 50s linear -27s infinite;
+}
+
+.x6{
+    top: -30%;
+    -webkit-animation: animateCloud 50s linear -8s infinite;
+	-moz-animation: animateCloud 50s linear -8s infinite;
+	animation: animateCloud 50s linear -8s infinite;
+}
+.x7{
+    top: -30%;
+    -webkit-animation: animateCloud 50s linear -23s infinite;
+	-moz-animation: animateCloud 50s linear -23s infinite;
+	animation: animateCloud 50s linear -23s infinite;
+}
+.x8{
+    top: -30%;
+     -webkit-animation: animateCloud 50s linear -5s infinite;
+	-moz-animation: animateCloud 50s linear -5s infinite;
+	animation: animateCloud 50s linear -5s infinite;
+}
+.x9{
+    top: -60%;
+    -webkit-animation: animateCloud 50s linear -15s infinite;
+	-moz-animation: animateCloud 50s linear -15s infinite;
+	animation: animateCloud 50s linear -15s infinite;
+}
+
+@media screen and (max-width: 800px) {
+    .playground{
+        bottom: 50px;
+    }
+    .slide{
+        height: 230px;
+        left: 15px;
+    }
+    .climber{
+        height: 130px;
+        right: 15px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .cloud{    
+        -webkit-transform: scale(0.3);
+        -moz-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+    .playground{
+        bottom: 75px;
+    }
+    .slide{
+        height: 150px;
+    }
+    .climber{
+        height: 80px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .playground{
+        bottom: 60px;
+    }
+    .slide{
+        height: 100px;
+    }
+    .climber{
+        height: 50px;
+    }
+}
+@media screen and (max-height: 500px){
+    .cloud{    
+        -webkit-transform: scale(0.3);
+        -moz-transform: scale(0.3);
+        transform: scale(0.3);
+    }
+    .playground{
+        bottom: 30px;
+    }
+    .slide{
+        height: 100px;
+    }
+    .climber{
+        height: 50px;
+    }    
+}
