@@ -3,16 +3,16 @@ Play With Me is a responsive web app that allows users to browse, post, and comm
 
 ## Screeshots
 Landing Page: 
-![Landing Page](./project-screenshots/landing-page.png?raw=true)
+![Landing Page](./project-screenshots/landing-page.png)
 
 Results Page: 
-![Results Page](./project-screenshots/results-page.png?raw=true)
+![Results Page](./project-screenshots/results-page.png)
 
 Details Page:
-![Details Page](./project-screenshots/details-page.png?raw=true)
+![Details Page](./project-screenshots/details-page.png)
 
 New Post Page:
-![New Post Page](./project-screenshots/new-post-page.png?raw=true)
+![New Post Page](./project-screenshots/new-post-page.png)
 
 ## Live App
 - https://play-with-me.vercel.app/
